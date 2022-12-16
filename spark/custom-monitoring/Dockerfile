@@ -26,13 +26,6 @@ global:\n\
   scrape_interval: 20s\n\
 \n\
 scrape_configs:\n\
-  - job_name: 'spark-master'\n\
-    metrics_path: '/metrics/master/prometheus'\n\
-    static_configs:\n\
-      - targets: ['localhost:8080']\n\
-        labels:\n\
-            instance_type: 'master'\n\
-            spark_cluster: 'emrserverless'\n\
   - job_name: 'spark-driver'\n\
     metrics_path: '/metrics/prometheus'\n\
     static_configs:\n\
@@ -46,20 +39,6 @@ scrape_configs:\n\
       - targets: ['localhost:4040']\n\
         labels:\n\
             instance_type: 'driver'\n\
-            spark_cluster: 'emrserverless'\n\
-  - job_name: 'spark-applications'\n\
-    metrics_path: '/metrics/applications/prometheus'\n\
-    static_configs:\n\
-      - targets: ['localhost:8080']\n\
-        labels:\n\
-            instance_type: 'application'\n\
-            spark_cluster: 'emrserverless'\n\
-  - job_name: 'spark-worker'\n\
-    metrics_path: '/metrics/prometheus'\n\
-    static_configs:\n\
-      - targets: ['localhost:8081']\n\
-        labels:\n\
-            instance_type: 'worker'\n\
             spark_cluster: 'emrserverless'\n\
 remote_write:\n\
   -\n\
