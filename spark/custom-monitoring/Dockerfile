@@ -1,4 +1,5 @@
-FROM public.ecr.aws/emr-serverless/spark3/emr-6.9.0:latest
+# Pull base image 
+FROM public.ecr.aws/emr-serverless/spark/emr-6.9.0:latest
 
 USER root
 
@@ -53,9 +54,11 @@ remote_write:\n\
 
 # Create a script to start the prometheus agent in the background
 RUN echo -e '#!/bin/bash\n\
-/usr/local/bin/prometheus --config.file=/home/hadoop/prometheus.yaml &\n\
+nohup /usr/local/bin/prometheus --config.file=/home/hadoop/prometheus.yaml </dev/null >/dev/null 2>&1 &\n\
+echo "Started Prometheus agent"\n\
 ' >> /home/hadoop/runner.sh
 
 RUN chmod +x /home/hadoop/runner.sh
 
+# EMRS will run the image as hadoop
 USER hadoop:hadoop

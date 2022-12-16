@@ -1,0 +1,17 @@
+[0m[[0m[0mdebug[0m] [0m[0mPackaging /Users/vasveena/Documents/serverless/emr-serverless-ci-blog/spark/custom-monitoring/target/scala-2.12/emrserverless-custom-images_2.12-1.0.jar ...[0m
+[0m[[0m[0mdebug[0m] [0m[0mInput file mappings:[0m
+[0m[[0m[0mdebug[0m] [0m[0m	[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/vasveena/Documents/serverless/emr-serverless-ci-blog/spark/custom-monitoring/target/scala-2.12/classes[0m
+[0m[[0m[0mdebug[0m] [0m[0m	emrserverless[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/vasveena/Documents/serverless/emr-serverless-ci-blog/spark/custom-monitoring/target/scala-2.12/classes/emrserverless[0m
+[0m[[0m[0mdebug[0m] [0m[0m	emrserverless/prometheus[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/vasveena/Documents/serverless/emr-serverless-ci-blog/spark/custom-monitoring/target/scala-2.12/classes/emrserverless/prometheus[0m
+[0m[[0m[0mdebug[0m] [0m[0m	emrserverless/prometheus/OpenStreetMapAnalysisCustomJRE.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/vasveena/Documents/serverless/emr-serverless-ci-blog/spark/custom-monitoring/target/scala-2.12/classes/emrserverless/prometheus/OpenStreetMapAnalysisCustomJRE.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	emrserverless/prometheus/OpenStreetMapAnalysisPrometheus$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/vasveena/Documents/serverless/emr-serverless-ci-blog/spark/custom-monitoring/target/scala-2.12/classes/emrserverless/prometheus/OpenStreetMapAnalysisPrometheus$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	emrserverless/prometheus/OpenStreetMapAnalysisCustomJRE$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/vasveena/Documents/serverless/emr-serverless-ci-blog/spark/custom-monitoring/target/scala-2.12/classes/emrserverless/prometheus/OpenStreetMapAnalysisCustomJRE$.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	emrserverless/prometheus/OpenStreetMapAnalysisPrometheus.class[0m
+[0m[[0m[0mdebug[0m] [0m[0m	  /Users/vasveena/Documents/serverless/emr-serverless-ci-blog/spark/custom-monitoring/target/scala-2.12/classes/emrserverless/prometheus/OpenStreetMapAnalysisPrometheus.class[0m
+[0m[[0m[0mdebug[0m] [0m[0mDone packaging.[0m
