@@ -1,4 +1,4 @@
-// This job finds all the US hospitals, doctors and clinics 
+// This job finds all the hospitals, doctors and clinics from Open Street Map data
 
 // scalastyle:off println
 package emrserverless.prometheus

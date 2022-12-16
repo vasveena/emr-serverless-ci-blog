@@ -24,37 +24,27 @@ bucket = sys.argv[2]
 prefix = sys.argv[3]
 region = sys.argv[4]
 
-# configure Spark to use the SageMaker Spark dependency jars
-#classpath = ":".join(sagemaker_pyspark.classpath_jars())
-#print("classpath -")
-#print(classpath)
-
 spark = SparkSession\
         .builder\
         .appName("XGBoost application on MNIST dataset")\
         .enableHiveSupport()\
         .getOrCreate()
 
-print("am here")
 trainingData = (
     spark.read.format("libsvm")
     .option("numFeatures", "784")
     .option("vectorType", "dense")
-    .load("s3://sagemaker-sample-data-{}/spark/mnist/train/".format(region))
+    .load("s3a://sagemaker-sample-data-{}/spark/mnist/train/".format(region))
 )
-
-print("am here 2")
 
 testData = (
     spark.read.format("libsvm")
     .option("numFeatures", "784")
     .option("vectorType", "dense")
-    .load("s3://sagemaker-sample-data-{}/spark/mnist/test/".format(region))
+    .load("s3a://sagemaker-sample-data-{}/spark/mnist/test/".format(region))
 )
 
 trainingData.show()
-
-print("before xgboost")
 
 xgboost_estimator = XGBoostSageMakerEstimator(
     sagemakerRole=IAMRole(role),
@@ -64,8 +54,6 @@ xgboost_estimator = XGBoostSageMakerEstimator(
     endpointInitialInstanceCount=1,
 )
 
-print("after xgboost")
-
 xgboost_estimator.setEta(0.2)
 xgboost_estimator.setGamma(4)
 xgboost_estimator.setMinChildWeight(6)
@@ -74,12 +62,8 @@ xgboost_estimator.setObjective("multi:softmax")
 xgboost_estimator.setNumClasses(10)
 xgboost_estimator.setNumRound(10)
 
-print("before train")
-
 # train
 model = xgboost_estimator.fit(trainingData)
-
-print("after train")
 
 # inference
 
@@ -118,9 +102,8 @@ for cluster in range(10):
     img_data = io.BytesIO()
     plt.savefig(img_data, format='png')
     img_data.seek(0)
-    s3 = boto3.resource('s3')
-    bucket = s3.Bucket(bucket)
-    bucket.put_object(Body=img_data, ContentType='image/png', Key=prefix)
+    client = boto3.client('s3')
+    client.put_object(Body=img_data, ContentType='image/png', Bucket=bucket, Key=prefix)
 
 resource_cleanup = SageMakerResourceCleanup(model.sagemakerClient)
 resource_cleanup.deleteResources(model.getCreatedResources())
