@@ -1,17 +1,15 @@
-// This job finds all the US hospitals, doctors and clinics 
+// This job finds all the hospitals, doctors and clinics from Open Street Map data
 
 // scalastyle:off println
-package emrserverless.prometheus
+package emrserverless.customjre
 
 import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions._
-import scala.sys.process._
-import sys.process._
 
-object OpenStreetMapAnalysisCustomJRE extends Serializable {
+object OpenStreetMapAnalysis extends Serializable {
   def main(args: Array[String]) {
    def start() = {
-        val spark = SparkSession.builder().appName("EMR Serverless Spark Prometheus Monitoring with Custom Image").enableHiveSupport().getOrCreate()
+        val spark = SparkSession.builder().appName("EMR Serverless Custom Java Runtime with Custom Image").enableHiveSupport().getOrCreate()
         import spark.implicits._
 
 	// Read data from OpenStreetMap
@@ -45,7 +43,7 @@ object OpenStreetMapAnalysisCustomJRE extends Serializable {
 	//union the result
 	val union_df = join_df.unionAll(nodes_in_bbox_df.select($"id",$"type",$"tags",$"lat",$"lon"))
 
-	println("Displaying hospitals, clinics and doctor offices from Open Street Map")
+        println("Displaying hospitals, clinics and doctor offices from Open Street Map")
 	union_df.show(truncate=false)
     }
    start

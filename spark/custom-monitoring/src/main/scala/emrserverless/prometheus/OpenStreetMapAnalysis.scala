@@ -8,7 +8,7 @@ import org.apache.spark.sql.functions._
 import scala.sys.process._
 import sys.process._
 
-object OpenStreetMapAnalysisPrometheus extends Serializable {
+object OpenStreetMapAnalysis extends Serializable {
   def main(args: Array[String]) {
    def start() = {
         val spark = SparkSession.builder().appName("EMR Serverless Spark Prometheus Monitoring with Custom Image").enableHiveSupport().getOrCreate()

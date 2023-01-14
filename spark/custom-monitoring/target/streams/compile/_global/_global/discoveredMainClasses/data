@@ -1,1 +1,1 @@
-["emrserverless.prometheus.OpenStreetMapAnalysisCustomJRE","emrserverless.prometheus.OpenStreetMapAnalysisPrometheus"]
+["emrserverless.customjre.OpenStreetMapAnalysis","emrserverless.customjre.SyntheticAnalysis","emrserverless.prometheus.OpenStreetMapAnalysis","emrserverless.prometheus.SyntheticAnalysis"]
